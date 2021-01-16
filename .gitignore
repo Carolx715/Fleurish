@@ -3,4 +3,4 @@
 **/.DS_Store
 **/.expo
 venv
-_pycache_
+__pycache__

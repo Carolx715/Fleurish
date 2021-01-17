@@ -20,6 +20,15 @@ const styles = StyleSheet.create({
       alignItems: "center"
     },
 
+    plantDetailContainer: {
+      paddingLeft: 40, 
+      paddingRight: 40, 
+      paddingBottom: 40,
+      flex: 1, 
+      justifyContent: "center", 
+      alignItems: "center"
+    },
+
     scrollTitle: {
       fontSize: 32,  
       marginTop: vh(10),

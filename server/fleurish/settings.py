@@ -31,8 +31,13 @@ DB_PASSWORD = str(os.getenv('DB_PASSWORD'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'http://localhost:8080',
+]
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -44,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'plants.apps.PlantsConfig'
 ]
 
 MIDDLEWARE = [

@@ -6,5 +6,7 @@ app_name = 'plants'
 
 urlpatterns = [
     path('plants',
+         views.PlantsView.as_view()),
+    path('plants/<pk>',
          views.PlantsView.as_view())
 ]

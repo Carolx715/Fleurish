@@ -7,7 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import MapScreen from "../screens/MapScreen";
 import CameraScreen from "../screens/CameraScreen";
-import PlantIndexScreen from "../screens/PlantIndexScreen";
+import { PlantIndexScreen, PlantDetail } from "../screens/PlantIndexScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 
 const Tab = createMaterialBottomTabNavigator();
@@ -58,6 +58,7 @@ export default function NavBar() {
         <Tab.Screen name="Map" component={MapScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
         <Tab.Screen name="Plant Index" component={PlantIndexScreen} />
+        <Tab.Screen name="Plant" component={PlantDetail} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>

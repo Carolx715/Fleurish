@@ -13,3 +13,12 @@ class PlantsView(APIView):
             return Response(serializer.data)
         except Plants.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
+class DetailedPlantsView(APIView):
+    def get(self, request, pk):
+        try:
+            plant = Plants.objects.get(pk=pk)
+            serializer = PlantsSerializer(plant)
+            return Response(serializer.data)
+        except Plants.DoesNotExist:
+                return Response(status=status.HTTP_404_NOT_FOUND)

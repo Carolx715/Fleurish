@@ -8,6 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import MapScreen from "../screens/MapScreen";
 import CameraScreen from "../screens/CameraScreen";
 import PlantIndexScreen from "../screens/PlantIndexScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -41,6 +42,14 @@ export default function NavBar() {
                   size={26}
                 />
               );
+            } else if (route.name === "Profile") {
+              return (
+                <Ionicons
+                  name={"ellipse"}
+                  color={focused ? "#5DB075" : "#E8E8E8"}
+                  size={26}
+                />
+              );
             }
           },
         })}
@@ -49,6 +58,7 @@ export default function NavBar() {
         <Tab.Screen name="Map" component={MapScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
         <Tab.Screen name="Plant Index" component={PlantIndexScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

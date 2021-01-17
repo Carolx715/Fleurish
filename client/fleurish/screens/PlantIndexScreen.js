@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Title } from "react-native-paper";
-import { View, Text, Image } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { ScrollView, View, Text, Image } from "react-native";
 import { REACT_APP_LOCAL_IP } from "@env";
 import axios from "axios";
+import styles from "../styles/globalStyles";
 
 export const PlantDetail = () => {
   const [plantResults, setPlantResults] = useState([]);
@@ -51,10 +52,11 @@ export const PlantDetail = () => {
 export const PlantIndexScreen = ({ navigation }) => {
   // console.log(plantResults[0].image_field)
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Title style={{ fontSize: 32 }}>Plant Index</Title>
+    <View style={styles.scrollViewContainer}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+      <Title style={styles.scrollTitle}>Plant Index</Title>
       <Text> Scroll through our index of plants! </Text>
-        <View>
+        <View style={styles.centeredView}>
           <Image
             key={`rhubarb`}
             source={require("./assets/Rhubarb.jpg")}
@@ -81,6 +83,7 @@ export const PlantIndexScreen = ({ navigation }) => {
             }}
           />
         </View>
+    </ScrollView>
     </View>
   );
 };

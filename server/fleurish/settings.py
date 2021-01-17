@@ -27,6 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = str(os.getenv('SECRET_KEY'))
 DB_PASSWORD = str(os.getenv('DB_PASSWORD'))
+LOCAL_HOST = str(os.getenv('LOCAL_HOST'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,6 +36,11 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:8000',
     'http://localhost:8080',
+    f'exp://{LOCAL_HOST}:19000'
+]
+
+ALLOWED_HOSTS = [
+    f'{LOCAL_HOST}'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True

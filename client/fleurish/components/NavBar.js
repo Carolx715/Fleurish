@@ -6,7 +6,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 
 // import MapScreen from "./MapScreen";
 // import CameraScreen from "./CameraScreen";
-// import PlantIndexScreen from "./PlantIndexScreen";
+import PlantIndexScreen from "./PlantIndexScreen";
 
 function MapScreen() {
   return (
@@ -16,13 +16,13 @@ function MapScreen() {
   );
 }
 
-function PlantIndexScreen1() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Plant Index</Text>
-    </View>
-  );
-}
+// function PlantIndexScreen1() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+//       <Text>Plant Index</Text>
+//     </View>
+//   );
+// }
 
 function CameraScreen() {
   return (
@@ -43,7 +43,7 @@ const NavBar = () => {
       <Tab.Navigator>
         <Tab.Screen name="Map" component={MapScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
-        <Tab.Screen name="PlantIndex" component={PlantIndexScreen1} />
+        <Tab.Screen name="PlantIndex" component={PlantIndexScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

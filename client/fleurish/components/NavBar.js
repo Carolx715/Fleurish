@@ -3,50 +3,63 @@ import * as React from "react";
 import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 
-// import MapScreen from "./MapScreen";
-// import CameraScreen from "./CameraScreen";
-import PlantIndexScreen from "./PlantIndexScreen";
-
-function MapScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Map</Text>
-    </View>
-  );
-}
-
-// function PlantIndexScreen1() {
-//   return (
-//     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-//       <Text>Plant Index</Text>
-//     </View>
-//   );
-// }
-
-function CameraScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Camera</Text>
-    </View>
-  );
-}
+import MapScreen from "../screens/MapScreen";
+import CameraScreen from "../screens/CameraScreen";
+import PlantIndexScreen from "../screens/PlantIndexScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
-const NavBar = () => {
+export default function NavBar() {
   return (
-    // <View>
-    //   <Text>Map</Text>
-    // </View>
-    <NavigationContainer>
-      <Tab.Navigator>
+    <NavigationContainer independent={true}>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused }) => {
+            if (route.name === "Map") {
+              return (
+                <Ionicons
+                  name={"ellipse"}
+                  color={focused ? "#5DB075" : "#E8E8E8"}
+                  size={26}
+                />
+              );
+            } else if (route.name === "Camera") {
+              return (
+                <Ionicons
+                  name={"ellipse"}
+                  color={focused ? "#5DB075" : "#E8E8E8"}
+                  size={26}
+                />
+              );
+            } else if (route.name === "Plant Index") {
+              return (
+                <Ionicons
+                  name={"ellipse"}
+                  color={focused ? "#5DB075" : "#E8E8E8"}
+                  size={26}
+                />
+              );
+            } else if (route.name === "Profile") {
+              return (
+                <Ionicons
+                  name={"ellipse"}
+                  color={focused ? "#5DB075" : "#E8E8E8"}
+                  size={26}
+                />
+              );
+            }
+          },
+        })}
+        barStyle={{ backgroundColor: "#ffff", height: 70 }}
+      >
         <Tab.Screen name="Map" component={MapScreen} />
         <Tab.Screen name="Camera" component={CameraScreen} />
-        <Tab.Screen name="PlantIndex" component={PlantIndexScreen} />
+        <Tab.Screen name="Plant Index" component={PlantIndexScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
-};
-
-export default NavBar;
+}

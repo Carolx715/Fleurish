@@ -1,38 +1,38 @@
 import "react-native-gesture-handler";
 import * as React from "react";
-import { View, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import { createStackNavigator } from "@react-navigation/stack";
 
-// import NavBar from "./components/NavBar";
-import MapScreen from "./components/MapScreen";
-import CameraScreen from "./components/CameraScreen";
-import PlantIndexScreen from "./components/PlantIndexScreen";
+import LandingScreen from "./screens/LandingScreen";
+import NavBar from "./components/NavBar";
 
-const Tab = createMaterialBottomTabNavigator();
-const icon = <FontAwesome5 name={"circle"} solid size={25} color="#E8E8E8" />;
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator barStyle={{ backgroundColor: "#ffff", height: 70 }}>
-        <Tab.Screen
-          name="Map"
-          component={MapScreen}
-          options={{ title: icon }}
+      <Stack.Navigator initialRouteName="Landing">
+        <Stack.Screen
+          name="Landing"
+          component={LandingScreen}
+          options={{ headerShown: false }}
         />
-        <Tab.Screen
-          name="Camera"
-          component={CameraScreen}
-          options={{ title: icon }}
+        <Stack.Screen
+          name="NavBar"
+          component={NavBar}
+          options={{ headerShown: false }}
         />
-        <Tab.Screen
-          name="PlantIndex"
-          component={PlantIndexScreen}
-          options={{ title: icon }}
-        />
-      </Tab.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFF",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

@@ -8,7 +8,7 @@ from .models import Plants
 class PlantsView(APIView):
     def get(self, request, format=None):
         try:
-            plants = Plants.objects.all()
+            plants = Plants.objects.all().order_by('id')
             serializer = PlantsSerializer(plants, many=True)
             return Response(serializer.data)
         except Plants.DoesNotExist:
